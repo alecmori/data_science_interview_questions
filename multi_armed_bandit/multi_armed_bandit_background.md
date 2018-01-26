@@ -23,7 +23,7 @@ can frame each one of these options as a probability distribution, with
 the variance depending on how many times you have chosen that particular
 option.
 
-![alt text](https://github.com/alecmori/data_science_interview_questions/multi_armed_bandit/images/three_different_choices.png "Three options, each chosen 10 times")
+![alt text](https://github.com/alecmori/data_science_interview_questions/blob/master/multi_armed_bandit/images/three_different_choices.png?raw=true "Three options, each chosen 10 times")
 
 However, we showed the first image *1000* times, when we were confident
 that it was worse than the other two after *10*. How can we decide to
@@ -32,4 +32,20 @@ stop showing an option after it doesn't work?
 Multi-Armed Bandit
 ==================
 
-Hello.
+The multi-armed bandit is a set of reinforcement learning algorithms
+wherein we have many actions and, based off the historical success of
+of these actions, we can pick the best one. The one I want to focus on
+today is Thompson Sampling.
+
+Thompson Sampling
+-----------------
+
+This algorithm is fairly simple - we sample a value from each actions'
+distribution and choose the action with the highest sample. The logic
+is
+
+* A distribution with a high success rate will have higher samples on average.
+* A distributino that has been chosen more often will have more consistent samples.
+
+Combine these two facts, and we can see how, over time, we converge into consistently
+only making one choice.
